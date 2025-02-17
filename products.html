@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品展示 - 广州医鸣健康大药房</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+        }
+        
+        .product-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem;
+        }
+        
+        .product-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">广州医鸣健康大药房</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="products.html">产品展示</a>
+            <a href="news.html">行业资讯</a>
+            <a href="jobs.html">人才招聘</a>
+            <a href="contact.html">联系我们</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>药品信息查询</h1>
+            <p>专业药品信息公示平台</p>
+        </section>
+
+        <div class="product-container">
+            <input type="text" class="search-box" placeholder="输入药品名称或成分查询...">
+            
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>产品名称</th>
+                        <th>规格</th>
+                        <th>品牌</th>
+                        <th>适用人群</th>
+                        <th>详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>连花清瘟胶囊</td>
+                        <td>24粒/盒</td>
+                        <td>以岭药业</td>
+                        <td>成人及12岁以上儿童</td>
+                        <td><a href="#detail1" class="detail-link">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>维生素C泡腾片</td>
+                        <td>20片/管</td>
+                        <td>力度伸</td>
+                        <td>全年龄段</td>
+                        <td><a href="#detail2" class="detail-link">查看详情</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+    </footer>
+</body>
+</html>

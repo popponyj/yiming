@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 广州医鸣健康大药房</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .info-box {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .contact-form {
+            margin-top: 2rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">广州医鸣健康大药房</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="products.html">产品展示</a>
+            <a href="news.html">行业资讯</a>
+            <a href="jobs.html">人才招聘</a>
+            <a href="contact.html">联系我们</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>联系我们</h1>
+            <p>随时为您提供专业服务</p>
+        </section>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-box">
+                    <h3>门店地址</h3>
+                    <p>广州市越秀区健康路123号</p>
+                    <p>营业时间：8:30-22:00</p>
+                </div>
+                <div class="info-box">
+                    <h3>联系方式</h3>
+                    <p>电话：020-12345678</p>
+                    <p>邮箱：service@yiming.com</p>
+                    <p>紧急热线：020-87654321</p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <!-- 可替换为实际地图嵌入代码 -->
+                <img src="map-placeholder.jpg" alt="门店位置" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+
+            <div class="info-box contact-form">
+                <h3>在线留言</h3>
+                <form>
+                    <input type="text" class="form-input" placeholder="您的姓名">
+                    <input type="tel" class="form-input" placeholder="联系电话">
+                    <textarea class="form-input" rows="5" placeholder="留言内容"></textarea>
+                    <button class="apply-button">发送留言</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+    </footer>
+</body>
+</html>
