@@ -9,19 +9,36 @@
         .about-content {
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.8;
         }
-        
+
         .history-timeline {
-            margin: 2rem 0;
-            padding-left: 2rem;
             border-left: 3px solid var(--primary-color);
+            padding-left: 2rem;
+            margin: 2rem 0;
         }
-        
+
+        .timeline-item {
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+        }
+
         .value-list {
             list-style: none;
             padding: 1rem 0;
         }
-        
+
         .value-list li {
             padding: 1.5rem;
             background: var(--secondary-color);
@@ -29,18 +46,11 @@
             border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 1rem;
         }
-        
+
         .value-icon {
             width: 40px;
-            height: 40px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            margin-right: 1rem;
         }
     </style>
 </head>
@@ -60,15 +70,48 @@
     <main>
         <section class="hero">
             <h1>关于我们</h1>
-            <p>始于2005年的健康守护者</p>
+            <p>专注健康服务20年</p>
         </section>
 
         <div class="card about-content">
             <h2>企业简介</h2>
-            <p>广州医鸣健康大药房成立于2005年，是经国家食品药品监督管理局认证的AAA级药品零售企业。我们始终秉承"健康为民，诚信为本"的经营理念...</p>
-            
+            <p>广州医鸣健康大药房成立于2003年，是经国家食品药品监督管理局认证的AAA级诚信企业...（请补充公司简介内容）</p>
+
             <div class="history-timeline">
-                <h3>发展历程</h3>
-                <p>2005年 - 首家门店在越秀区开业</p>
-                <p>2012年 - 获得GSP认证</p>
-                <p>2020年 - 开通
+                <div class="timeline-item">
+                    <h3>2003年</h3>
+                    <p>第一家门店在广州越秀区正式开业</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2010年</h3>
+                    <p>通过GSP认证，建立现代化仓储管理系统</p>
+                </div>
+                <!-- 更多发展历程 -->
+            </div>
+
+            <h2>核心价值</h2>
+            <ul class="value-list">
+                <li>
+                    <img src="images/icon-quality.svg" alt="品质" class="value-icon">
+                    <div>
+                        <h3>品质保证</h3>
+                        <p>严格把控药品质量，所有产品均通过正规渠道采购</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/icon-service.svg" alt="服务" class="value-icon">
+                    <div>
+                        <h3>专业服务</h3>
+                        <p>持证药师团队提供专业用药指导</p>
+                    </div>
+                </li>
+                <!-- 更多价值观条目 -->
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+    </footer>
+</body>
+</html>

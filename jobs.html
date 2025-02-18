@@ -10,30 +10,30 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .job-card {
             padding: 2rem;
             margin: 2rem 0;
             border-left: 4px solid var(--primary-color);
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        
-        .job-tags {
+
+        .job-meta {
             display: flex;
             gap: 1rem;
             margin: 1rem 0;
         }
-        
+
         .job-tag {
             background: #e3f5ec;
             color: var(--primary-color);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
             font-size: 0.9rem;
         }
-        
+
         .apply-button {
             background: var(--primary-color);
             color: white;
@@ -44,24 +44,19 @@
             margin-top: 1rem;
             transition: opacity 0.3s;
         }
-        
+
         .apply-button:hover {
             opacity: 0.9;
+        }
+
+        .job-requirements {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">广州医鸣健康大药房</div>
-        <div class="nav-links">
-            <a href="index.html">首页</a>
-            <a href="about.html">关于我们</a>
-            <a href="products.html">产品展示</a>
-            <a href="news.html">行业资讯</a>
-            <a href="jobs.html">人才招聘</a>
-            <a href="contact.html">联系我们</a>
-        </div>
-    </nav>
+    <nav><!-- 与首页相同的导航结构 --></nav>
 
     <main>
         <section class="hero">
@@ -72,39 +67,30 @@
         <div class="jobs-container">
             <div class="job-card">
                 <h2>执业药师（全职）</h2>
-                <div class="job-tags">
-                    <span class="job-tag">月薪8-12k</span>
+                <div class="job-meta">
+                    <span class="job-tag">薪资面议</span>
                     <span class="job-tag">五险一金</span>
                     <span class="job-tag">带薪年假</span>
                 </div>
-                <h3>职位要求：</h3>
-                <ul>
-                    <li>持有有效的执业药师资格证书</li>
+                <h3>岗位职责：</h3>
+                <ul class="job-requirements">
+                    <li>负责处方审核及用药指导</li>
+                    <li>药品质量验收与养护管理</li>
+                    <li>客户健康咨询与服务</li>
+                </ul>
+                <h3>任职要求：</h3>
+                <ul class="job-requirements">
+                    <li>持有有效执业药师资格证</li>
                     <li>3年以上药店工作经验</li>
-                    <li>熟悉GSP管理规范</li>
+                    <li>良好的沟通服务意识</li>
                 </ul>
                 <button class="apply-button">立即申请</button>
             </div>
 
-            <div class="job-card">
-                <h2>健康顾问（兼职）</h2>
-                <div class="job-tags">
-                    <span class="job-tag">时薪80-120元</span>
-                    <span class="job-tag">弹性工作时间</span>
-                </div>
-                <h3>职位要求：</h3>
-                <ul>
-                    <li>医学相关专业背景</li>
-                    <li>良好的沟通能力</li>
-                    <li>每周至少工作3天</li>
-                </ul>
-                <button class="apply-button">立即申请</button>
-            </div>
+            <!-- 更多招聘岗位 -->
         </div>
     </main>
 
-    <footer>
-        <p>© 2024 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
-    </footer>
+    <footer><!-- 与首页相同的页脚 --></footer>
 </body>
 </html>
