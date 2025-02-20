@@ -62,6 +62,20 @@
             background: var(--primary-color);
             color: white;
         }
+
+        .read-more {
+        color: var(--primary-color);
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+        font-weight: 500;
+        transition: opacity 0.3s;
+        }
+
+        .read-more:hover {
+            opacity: 0.8;
+        }
+        
     </style>
 </head>
 <body>
@@ -71,7 +85,7 @@
             <a href="index.html">首页</a>
             <a href="about.html">关于我们</a>
             <a href="products.html">产品展示</a>
-            <a href="news.html">行业资讯</a>
+            <a href="news.html" class="active">行业资讯</a>
             <a href="jobs.html">人才招聘</a>
             <a href="contact.html">联系我们</a>
         </div>
@@ -84,31 +98,45 @@
         </section>
 
         <div class="news-container">
+            <!-- 修改文章卡片部分 -->
             <div class="article-card">
                 <div class="article-meta">
-                    <span class="article-tag">政策解读</span>
-                    <span class="article-date">2024-03-18</span>
+                    <span class="article-tag">健康科普</span>
+                    <span class="article-date">2025-02-15</span>
                 </div>
-                <h2>新版医保目录实施要点解析</h2>
-                <p>国家医疗保障局发布2024年新版国家医保药品目录...（文章摘要）</p>
-                <a href="#" style="color: var(--primary-color); margin-top: 1rem; display: inline-block;">阅读全文 →</a>
+                <h2>甲流高发季，警惕6大并发症来袭！</h2>
+                <p>宝子们，甲流可没你想的那么简单！它不仅会带来发热、咳嗽等症状，还可能引发肺炎、心肌炎等可怕并发症，甚至危及生命。别慌，这篇文章告诉你如何预防和应对，快来看看吧！</p>
+                <a href="news-detail-1.html" class="read-more">阅读全文 →</a>
             </div>
 
             <div class="article-card">
                 <div class="article-meta">
                     <span class="article-tag">健康科普</span>
-                    <span class="article-date">2024-03-15</span>
+                    <span class="article-date">2025-02-15</span>
                 </div>
-                <h2>春季过敏防护指南</h2>
-                <p>春季是过敏高发季节，如何正确选择抗过敏药物...（文章摘要）</p>
-                <a href="#" style="color: var(--primary-color); margin-top: 1rem; display: inline-block;">阅读全文 →</a>
+                <h2>返工季！流感高发，4招教你轻松预防？</h2>
+                <p>亲，春节返工了，流感高发很担心？别慌！这篇文章给你4个超实用办法，从出行防护到作息调整，帮你轻松应对流感，赶紧来看看吧！</p>
+                <a href="news-detail-2.html" style="color: var(--primary-color); margin-top: 1rem; display: inline-block;">阅读全文 →</a>
             </div>
 
-            <div class="pagination">
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-tag">促销活动</span>
+                    <span class="article-date">2025-02-15</span>
+                </div>
+                <h2>会员Plus活动，满199元享9折优惠、订单包邮！</h2>
+                <p>全店所有商品参与活动，购物满199元，即可享受9折优惠+免邮费。</p>
+                <a href="https://www.800pharm.com" style="color: var(--primary-color); margin-top: 1rem; display: inline-block;">阅读全文 →</a>
+            </div>
+
+            <div style="text-align: center;">没有更多啦～</div>
+
+            <!-- 添加分页部分 -->
+            <!-- <div class="pagination">
                 <span class="page-number active">1</span>
                 <span class="page-number">2</span>
                 <span class="page-number">3</span>
-            </div>
+            </div> -->
         </div>
     </main>
 

@@ -53,8 +53,73 @@
             margin: 1.5rem 0;
             padding-left: 1.5rem;
         }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-qrcode {
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary-color);
+        }
+
     </style>
 </head>
+
+<script>
+    // 弹窗控制函数
+    function openModal() {
+        document.getElementById("qrcodeModal").style.display = "block";
+    }
+    
+    // 关闭弹窗逻辑
+    document.getElementsByClassName("close")[0].onclick = function() {
+        document.getElementById("qrcodeModal").style.display = "none";
+    }
+    
+    // 点击蒙层关闭
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("qrcodeModal")) {
+            document.getElementById("qrcodeModal").style.display = "none";
+        }
+    }
+    </script>
+
 <body>
     <nav>
         <div class="logo">广州医鸣健康大药房</div>
@@ -63,10 +128,20 @@
             <a href="about.html">关于我们</a>
             <a href="products.html">产品展示</a>
             <a href="news.html">行业资讯</a>
-            <a href="jobs.html">人才招聘</a>
+            <a href="jobs.html" class="active">人才招聘</a>
             <a href="contact.html">联系我们</a>
         </div>
     </nav>
+
+    <!-- 在</main>标签前添加弹窗代码 -->
+    <div id="qrcodeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>微信扫码申请</h3>
+            <img src="images/wechat-qrcode.png" alt="招聘微信二维码" class="modal-qrcode">
+            <p>添加时请备注：应聘岗位+姓名</p>
+        </div>
+    </div>
 
     <main>
         <section class="hero">
@@ -94,7 +169,10 @@
                     <li>3年以上药店工作经验</li>
                     <li>良好的沟通服务意识</li>
                 </ul>
-                <button class="apply-button">立即申请</button>
+                
+                <!-- 修改按钮代码 -->
+                <button class="apply-button" onclick="openModal()">立即申请</button>
+                <!-- <button class="apply-button">立即申请</button> -->
             </div>
 
             <!-- 更多招聘岗位 -->

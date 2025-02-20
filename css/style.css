@@ -51,6 +51,29 @@ nav {
     color: var(--primary-color);
 }
 
+/* 在原有.nav-links a样式后添加 */
+.nav-links a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    animation: underline 0.3s ease;
+}
+
+@keyframes underline {
+    from { width: 0 }
+    to { width: 100% }
+}
+
 main {
     margin-top: 80px;
     padding: 2rem 5%;

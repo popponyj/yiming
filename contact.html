@@ -59,6 +59,48 @@
             cursor: pointer;
             margin-top: 1rem;
         }
+
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片比例并填满容器 */
+        }
+
+        /* 添加在contact.html的<style>标签内 */
+        .qrcode-section {
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .qrcode-box {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .qrcode-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .qrcode-tip {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +112,7 @@
             <a href="products.html">产品展示</a>
             <a href="news.html">行业资讯</a>
             <a href="jobs.html">人才招聘</a>
-            <a href="contact.html">联系我们</a>
+            <a href="contact.html" class="active">联系我们</a>
         </div>
     </nav>
 
@@ -86,38 +128,39 @@
                     <h2>联系信息</h2>
                     <div class="contact-item">
                         <h3>总部地址</h3>
-                        <p>广州市越秀区健康路123号<br>邮编：510000</p>
+                        <p>广州市海珠区华洲路28号时代方洲东区3A栋106<br>邮编：510220</p>
                     </div>
                     <div class="contact-item">
                         <h3>联系电话</h3>
-                        <p>服务热线：020-12345678<br>传真：020-87654321</p>
+                        <p>13828118383<br>（微信同号）</p>
                     </div>
                     <div class="contact-item">
                         <h3>电子邮箱</h3>
-                        <p>服务咨询：service@yiming.com<br>招聘专用：hr@yiming.com</p>
+                        <p>522092194@qq.com<br>（商务合作、服务咨询、招聘）</p>
                     </div>
                 </div>
 
-                <form class="contact-form">
+                <div class="qrcode-section">
+                    <h2>微信联系</h2>
+                    <div class="qrcode-box">
+                        <img src="images/wechat-qrcode.png" alt="微信二维码" class="qrcode-img">
+                        <p class="qrcode-tip">扫码添加客服微信</p>
+                    </div>
+                </div>
+                
+                <!-- <form class="contact-form">
                     <h2>在线留言</h2>
                     <input type="text" placeholder="您的姓名" required>
                     <input type="email" placeholder="电子邮箱" required>
                     <input type="tel" placeholder="联系电话">
                     <textarea rows="6" placeholder="留言内容" required></textarea>
                     <button type="submit" class="submit-button">发送消息</button>
-                </form>
+                </form> -->
             </div>
 
+            <!-- 修改地图容器部分 -->
             <div class="map-container">
-                <!-- 嵌入实际地图代码 -->
-                <iframe 
-                    src="https://maps.google.com/maps?q=广州市越秀区健康路123号&output=embed" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    style="border:0;"
-                    allowfullscreen>
-                </iframe>
+                <img src="images/location-map.jpg" alt="公司位置地图" class="map-image">
             </div>
         </div>
     </main>
