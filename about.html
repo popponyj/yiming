@@ -52,6 +52,44 @@
             width: 40px;
             margin-right: 1rem;
         }
+
+        /* 图片画廊样式 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .gallery-img {
+                height: auto;
+                max-height: 400px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -108,10 +146,53 @@
                 <!-- 更多价值观条目 -->
             </ul>
         </div>
+
+        <section class="store-gallery">
+            <h2 style="text-align: center; margin: 3rem 0 2rem;">门店实景</h2>
+            <div class="gallery-grid">
+                <img src="images/about/store-01.jpg" alt="越秀区旗舰店外景" class="gallery-img">
+                <img src="images/about/store-02.jpg" alt="药品陈列区实拍" class="gallery-img">
+                <img src="images/about/store-03.jpg" alt="专业咨询服务区" class="gallery-img">
+            </div>
+        </section>
+
     </main>
 
+    <script>
+        // 添加点击放大功能（在about.html底部script前添加）
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function() {
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    z-index: 9999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: zoom-out;
+                `;
+                
+                const largeImg = new Image();
+                largeImg.src = this.src;
+                largeImg.style.maxWidth = '90%';
+                largeImg.style.maxHeight = '90%';
+                largeImg.style.borderRadius = '12px';
+                
+                overlay.appendChild(largeImg);
+                document.body.appendChild(overlay);
+                
+                overlay.addEventListener('click', () => overlay.remove());
+            });
+        });
+    </script>
+
     <footer>
-        <p>© 2025 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+        <p>© 2025 广州医鸣健康大药房有限公司</p>
     </footer>
 </body>
 </html>

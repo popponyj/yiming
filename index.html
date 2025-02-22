@@ -5,7 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广州医鸣健康大药房</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* 新增首页专属样式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .module-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* 产品轮播样式 */
+        .products-carousel {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .product-slide {
+            min-width: 260px;
+            scroll-snap-align: start;
+        }
+
+        /* 产品轮播图尺寸控制 */
+        .product-thumb {
+            width: 100%;
+            height: 200px; /* 固定高度 */
+            object-fit: cover; /* 保持比例裁剪 */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* 关于我们预览图 */
+        .about-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 调整轮播容器尺寸 */
+        .products-carousel {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 单列产品卡片尺寸 */
+        .product-slide {
+            min-width: 280px; /* 卡片最小宽度 */
+            width: calc(33.33% - 1rem); /* 三列布局 */
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .product-slide {
+                width: 80%; /* 移动端显示更宽 */
+                margin: 0 10%;
+            }
+            
+            .product-thumb {
+                height: 150px;
+            }
+        }
+
+        /* 悬停放大效果 */
+        .product-thumb:hover {
+            transform: scale(1.05);
+            cursor: zoom-in;
+        }
+
+        /* 点击查看大图 */
+        .product-thumb:active {
+            transform: scale(1.8);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        /* 新增首页专属样式 */
+        .about-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+        .about-excerpt {
+            color: #666;
+            line-height: 1.8;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .about-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-img {
+                height: 250px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
     <nav>
         <div class="logo">广州医鸣健康大药房</div>
@@ -25,50 +172,103 @@
             <p>专业药品供应 | 健康咨询服务 | 行业资讯平台</p>
         </section>
 
-        <div class="section-grid">
-            <!-- 保持首页原有内容 -->
-        </div>
-
-        <div class="card about-content">
-            <h2>企业简介</h2>
-            <p>广州医鸣健康大药房有限公司成立于2019年8月。公司始终坚持将GSP要求作为公司经营的行为准则，认真落实《药品管理法》、新版《药品经营质量管理规范》等一系列法律法规，严格把控进货渠道，店内质量管理体系完善，配备专业的药学技术人员，对药品进行定期检查，同时，高度重视员工的法规培训，定期组织学习活动，提升员工对法律法规的理解和执行能力，为顾客提供安全、有效的药品和优质的药学服务。 </p>
-
-            <div class="history-timeline">
-                <div class="timeline-item">
-                    <h3>2003年</h3>
-                    <p>第一家门店在广州越秀区正式开业</p>
+        <!-- ===== 新增整合模块 ===== -->
+        <section class="module-card">
+            <div class="module-header">
+                <h2>产品展示</h2>
+                <a href="products.html" class="module-more">查看全部 →</a>
+            </div>
+            <div class="products-carousel">
+                <!-- 产品卡片1 -->
+                <div class="product-slide">
+                    <img src="images/products/prod-01.jpg" alt="蒙脱石散" class="product-thumb">
+                    <h3>【南京易亨&易加】蒙脱石散 3g*10袋/盒 南京易亨制药有限公司</h3>
+                    <p class="product-desc">用于成人及儿童急、慢性腹泻。</p>
                 </div>
-                <div class="timeline-item">
-                    <h3>2010年</h3>
-                    <p>通过GSP认证，建立现代化仓储管理系统</p>
+                <!-- 产品卡片2 -->
+                <div class="product-slide">
+                    <img src="images/products/prod-02.jpg" alt="曲安奈德鼻喷雾剂" class="product-thumb">
+                    <h3>【珍德】曲安奈德鼻喷雾剂 6ml:6.6mg(55μg*120揿)/盒 江西珍视明药业有限公司</h3>
+                    <p class="product-desc">预防和治疗常年性及季节性过敏性鼻炎，其症状主要有鼻痒﹑鼻阻﹑流鼻涕﹑打喷嚏等。</p>
                 </div>
-                <!-- 更多发展历程 -->
+                <!-- 产品卡片3 -->
+                <div class="product-slide">
+                    <img src="images/products/prod-03.jpg" alt="金骨莲胶囊" class="product-thumb">
+                    <h3>【100益佰】金骨莲胶囊 0.25g*24粒/盒 贵州益佰制药股份有限公司</h3>
+                    <p class="product-desc">苗医：中医：祛风除湿，消肿止痛。用于风湿痹阻所致的关节肿痛，屈伸不利。</p>
+                </div>
+                <!-- 产品卡片4 -->
+                <div class="product-slide">
+                    <img src="images/products/prod-04.jpg" alt="疏肝颗粒" class="product-thumb">
+                    <h3>【昆中药】舒肝颗粒 3g*16袋/盒 昆明中药厂有限公司</h3>
+                    <p class="product-desc">舒肝理气，散郁调经。本品用于肝气不舒的两胁疼痛，胸腹胀闷，月经不调，头痛目眩，心烦意乱，口苦咽干，以及肝郁气滞所致的面部黧黑斑（黄褐斑）。</p>
+                </div>
+                <!-- 产品卡片5 -->
+                <div class="product-slide">
+                    <img src="images/products/prod-05.jpg" alt="小柴胡颗粒" class="product-thumb">
+                    <h3>【白云山】小柴胡颗粒 10g*10袋/盒 广州白云山光华制药股份有限公司</h3>
+                    <p class="product-desc">解表散热，疏肝和胃。用于寒热往来，胸胁苦满，心烦喜吐，口苦咽干。</p>
+                </div>
+                <!-- 更多产品... -->
+            </div>
+        </section>
+
+        <!-- 资讯模块 -->
+        <div class="feature-grid">
+            <div class="module-card">
+                <div class="module-header">
+                    <h2>最新资讯</h2>
+                    <a href="news.html" class="module-more">更多资讯 →</a>
+                </div>
+                <ul class="news-list">
+                    <li><a href="news-detail-1.html">甲流高发季，警惕6大并发症来袭！</a></li>
+                    <li><a href="news-detail-2.html">返工季！流感高发，4招教你轻松预防？</a></li>
+                    <!-- 更多资讯条目 -->
+                </ul>
             </div>
 
-            <h2>核心价值</h2>
-            <ul class="value-list">
-                <li>
-                    <img src="images/icon-quality.svg" alt="品质" class="value-icon">
-                    <div>
-                        <h3>品质保证</h3>
-                        <p>严格把控药品质量，所有产品均通过正规渠道采购</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="images/icon-service.svg" alt="服务" class="value-icon">
-                    <div>
-                        <h3>专业服务</h3>
-                        <p>持证药师团队提供专业用药指导</p>
-                    </div>
-                </li>
-                <!-- 更多价值观条目 -->
-            </ul>
+            <!-- 招聘模块 -->
+            <div class="module-card">
+                <div class="module-header">
+                    <h2>热招岗位</h2>
+                    <a href="jobs.html" class="module-more">查看所有职位 →</a>
+                </div>
+                <ul class="jobs-list">
+                    <li>执业药师（全职）</li>
+                    <li>健康顾问（兼职）</li>
+                    <!-- 更多岗位 -->
+                </ul>
+            </div>
         </div>
+
+        <!-- 关于我们模块 -->
+        <section class="module-card">
+            <div class="module-header">
+                <h2>关于我们</h2>
+                <a href="about.html" class="module-more">了解更多 →</a>
+            </div>
+            <!-- 新增三图布局 -->
+            <div class="about-gallery">
+                <img src="images/about/store-01.jpg" alt="门店外景" class="gallery-img">
+                <img src="images/about/store-02.jpg" alt="药品陈列区" class="gallery-img">
+                <img src="images/about/store-03.jpg" alt="咨询台" class="gallery-img">
+            </div>
+            <div class="about-preview">
+                <!-- <img src="images/about/store-01.jpg" alt="门店预览" class="about-thumb"> -->
+                <p>广州医鸣健康大药房有限公司成立于2019年8月。公司始终坚持将GSP要求作为公司经营的行为准则，认真落实《药品管理法》、新版《药品经营质量管理规范》等一系列法律法规，严格把控进货渠道，店内质量管理体系完善，配备专业的药学技术人员，对药品进行定期检查，同时，高度重视员工的法规培训，定期组织学习活动，提升员工对法律法规的理解和执行能力，为顾客提供安全、有效的药品和优质的药学服务。</p>
+            </div>
+        </section>
 
     </main>
 
+    <!-- 页脚增加联系信息 -->
     <footer>
-        <p>© 2025 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+        <div class="contact-footer">
+            <p>地址：广州市海珠区华洲路28号时代方洲东区3A栋106</p>
+            <p>电话：13828118383</p>
+            <p>© 2025 广州医鸣健康大药房有限公司</p>
+        </div>
     </footer>
+
 </body>
 </html>

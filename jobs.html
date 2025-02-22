@@ -108,7 +108,7 @@
     }
     
     // 关闭弹窗逻辑
-    document.getElementsByClassName("close")[0].onclick = function() {
+    function closeModal() {
         document.getElementById("qrcodeModal").style.display = "none";
     }
     
@@ -136,7 +136,7 @@
     <!-- 在</main>标签前添加弹窗代码 -->
     <div id="qrcodeModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h3>微信扫码申请</h3>
             <img src="images/wechat-qrcode.png" alt="招聘微信二维码" class="modal-qrcode">
             <p>添加时请备注：应聘岗位+姓名</p>
@@ -175,12 +175,37 @@
                 <!-- <button class="apply-button">立即申请</button> -->
             </div>
 
+            <div class="job-card">
+                <h2>健康顾问（兼职）</h2>
+                <div class="job-meta">
+                    <span class="job-tag">薪资面议</span>
+                    <span class="job-tag">五险一金</span>
+                    <span class="job-tag">带薪年假</span>
+                </div>
+                <h3>岗位职责：</h3>
+                <ul class="job-requirements">
+                    <li>负责处方审核及用药指导</li>
+                    <li>药品质量验收与养护管理</li>
+                    <li>客户健康咨询与服务</li>
+                </ul>
+                <h3>任职要求：</h3>
+                <ul class="job-requirements">
+                    <li>持有有效执业药师资格证</li>
+                    <li>3年以上药店工作经验</li>
+                    <li>良好的沟通服务意识</li>
+                </ul>
+                
+                <!-- 修改按钮代码 -->
+                <button class="apply-button" onclick="openModal()">立即申请</button>
+                <!-- <button class="apply-button">立即申请</button> -->
+            </div>
+
             <!-- 更多招聘岗位 -->
         </div>
     </main>
 
     <footer>
-        <p>© 2025 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+        <p>© 2025 广州医鸣健康大药房有限公司</p>
     </footer>
 </body>
 </html>

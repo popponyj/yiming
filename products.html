@@ -6,44 +6,95 @@
     <title>产品展示 - 广州医鸣健康大药房</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .product-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .search-box {
-            width: 100%;
-            max-width: 400px;
-            padding: 1rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 8px;
+        /* 新增产品卡片样式 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
             margin: 2rem 0;
-            font-size: 1rem;
         }
-        
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
+
+        .product-card {
             background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            overflow: hidden;
         }
-        
-        .product-table th {
-            background: var(--primary-color);
-            color: white;
-            padding: 1.2rem;
+
+        .product-card:hover {
+            transform: translateY(-5px);
         }
-        
-        .product-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--secondary-color);
         }
-        
-        .detail-link {
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
             color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            min-height: 3em;
         }
+
+        .product-id {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-detail {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .detail-item {
+            margin: 0.8rem 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .detail-item::after {
+            content: "▶";
+            position: absolute;
+            right: 0;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .detail-item.active::after {
+            transform: rotate(90deg);
+        }
+
+        .detail-content {
+            display: none;
+            padding: 0.5rem;
+            background: var(--secondary-color);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .product-image {
+            background: #f5f5f7;
+            transition: opacity 0.3s;
+        }
+
+        .product-image[data-src] {
+            opacity: 0;
+        }
+
+        .product-image.loaded {
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -61,45 +112,190 @@
 
     <main>
         <section class="hero">
-            <h1>药品信息查询</h1>
-            <p>专业药品信息公示平台</p>
+            <h1>产品展示</h1>
+            <p>正品保障 · 送货上门</p>
         </section>
 
-        <div class="product-container">
-            <input type="text" class="search-box" placeholder="输入药品名称或成分查询...">
-            
-            <table class="product-table">
-                <thead>
-                    <tr>
-                        <th>产品名称</th>
-                        <th>规格</th>
-                        <th>品牌</th>
-                        <th>适用人群</th>
-                        <th>详情</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>连花清瘟胶囊</td>
-                        <td>24粒/盒</td>
-                        <td>以岭药业</td>
-                        <td>成人及12岁以上儿童</td>
-                        <td><a href="#detail1" class="detail-link">查看详情</a></td>
-                    </tr>
-                    <tr>
-                        <td>维生素C泡腾片</td>
-                        <td>20片/管</td>
-                        <td>力度伸</td>
-                        <td>全年龄段</td>
-                        <td><a href="#detail2" class="detail-link">查看详情</a></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="product-grid">
+            <!-- 产品卡片1 -->
+            <div class="product-card">
+                <!-- <img src="images/products/prod-01.jpg" alt="阿莫西林胶囊" class="product-image"> -->
+                <!-- 修改图片标签（约第40行） -->
+                <img 
+                data-src="images/products/prod-01.jpg" 
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+                alt="蒙脱石散" 
+                class="product-image"
+                >
+                <div class="product-content">
+                    <h3 class="product-title">【南京易亨&易加】蒙脱石散 3g*10袋/盒 南京易亨制药有限公司</h3>
+                    <div class="product-id">国药准字H20074078</div>
+                    <div class="product-detail">
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            功能主治
+                            <div class="detail-content">
+                                用于成人及儿童急、慢性腹泻。
+                            </div>
+                        </div>
+
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            用法用量
+                            <div class="detail-content">
+                                口服，服用时将本品倒入半杯温开水（约50ml）中混匀快速服完。 （1）成人每次1袋（3g），一日3次。 （2）1岁以下每日1袋，分3次服。 （3）1-2岁每日1-2袋，分3次服。 （4）2岁以上每日2-3袋，分3次服。 （5）治疗急性腹泻时剂量应加倍。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品卡片2 -->
+            <div class="product-card">
+                <img src="images/products/prod-02.jpg" alt="曲安奈德鼻喷雾剂" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">【珍德】曲安奈德鼻喷雾剂 6ml:6.6mg(55μg*120揿)/盒 江西珍视明药业有限公司</h3>
+                    <div class="product-id">国药准字H20010780</div>
+                    <div class="product-detail">
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            功能主治
+                            <div class="detail-content">
+                                预防和治疗常年性及季节性过敏性鼻炎，其症状主要有鼻痒﹑鼻阻﹑流鼻涕﹑打喷嚏等。
+                            </div>
+                        </div>
+
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            用法用量
+                            <div class="detail-content">
+                                鼻腔内喷雾治疗。用前请充分振摇，使均匀。当使用次数超过120次后，每揿的实际给药量会低于55ug，因此应抛弃药瓶，并不得将残留的药液倒入其他瓶使用。1.成人和12岁以上的儿童：每天一次，每次各鼻孔两喷（220微克/日）。2.4-12岁的儿童：每天一次，每次各鼻孔一喷（110微克/日）。3.老年人用量同成年人。4.或遵医嘱。5.为达到最佳疗效，应有规律用药。最高疗效未必会在头数次使用中达到。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品卡片3 -->
+            <div class="product-card">
+                <img src="images/products/prod-03.jpg" alt="金骨莲胶囊" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">【100益佰】金骨莲胶囊 0.25g*24粒/盒 贵州益佰制药股份有限公司</h3>
+                    <div class="product-id">国药准字Z20123051</div>
+                    <div class="product-detail">
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            功能主治
+                            <div class="detail-content">
+                                苗医：中医：祛风除湿，消肿止痛。用于风湿痹阻所致的关节肿痛，屈伸不利。
+                            </div>
+                        </div>
+
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            用法用量
+                            <div class="detail-content">
+                                口服，一次2粒，一日3次。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品卡片4 -->
+            <div class="product-card">
+                <img src="images/products/prod-04.jpg" alt="疏肝颗粒" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">【昆中药】舒肝颗粒 3g*16袋/盒 昆明中药厂有限公司</h3>
+                    <div class="product-id">国药准字Z53021161</div>
+                    <div class="product-detail">
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            功能主治
+                            <div class="detail-content">
+                                舒肝理气，散郁调经。本品用于肝气不舒的两胁疼痛，胸腹胀闷，月经不调，头痛目眩，心烦意乱，口苦咽干，以及肝郁气滞所致的面部黧黑斑（黄褐斑）。
+                            </div>
+                        </div>
+
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            用法用量
+                            <div class="detail-content">
+                                口服，一次1袋，一日2次，用温开水或姜汤送服。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品卡片5 -->
+            <div class="product-card">
+                <img src="images/products/prod-05.jpg" alt="小柴胡颗粒" class="product-image">
+                <div class="product-content">
+                    <h3 class="product-title">【白云山】小柴胡颗粒 10g*10袋/盒 广州白云山光华制药股份有限公司</h3>
+                    <div class="product-id">国药准字Z44020211</div>
+                    <div class="product-detail">
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            功能主治
+                            <div class="detail-content">
+                                解表散热，疏肝和胃。用于寒热往来，胸胁苦满，心烦喜吐，口苦咽干。
+                            </div>
+                        </div>
+
+                        <div class="detail-item" onclick="toggleDetail(this)">
+                            用法用量
+                            <div class="detail-content">
+                                开水冲服，一次2～4克，一日3次。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <footer>
-        <p>© 2024 广州医鸣健康大药房有限公司 粤ICP备12345678号</p>
+        <p>© 2025 广州医鸣健康大药房有限公司</p>
     </footer>
+
+    <script>
+        // 详细信息切换
+        function toggleDetail(element) {
+            const content = element.querySelector('.detail-content');
+            const isActive = element.classList.contains('active');
+            
+            // 关闭所有打开的详情
+            document.querySelectorAll('.detail-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.detail-content').style.display = 'none';
+            });
+
+            // 切换当前项
+            if (!isActive) {
+                element.classList.add('active');
+                content.style.display = 'block';
+            }
+        }
+
+        // ====== 新增懒加载代码 ======
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('.product-image');
+            const observerOptions = {
+                rootMargin: '200px', // 提前200px加载
+                threshold: 0.01
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            }, observerOptions);
+
+            lazyImages.forEach(img => {
+                if(img.dataset.src) {
+                    observer.observe(img);
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>
